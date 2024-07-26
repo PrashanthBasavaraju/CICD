@@ -1,0 +1,33 @@
+paths:
+  http://localhost:8080/api/timesheets:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                startTime:
+                  type: string
+                  format: time
+                  example: "09:00:00"
+                hours:
+                  type: string
+                  format: time
+                  example: "08:00:00"
+                description:
+                  type: string
+                  example: "Worked on project ABC"
+                date:
+                  type: string
+                  format: date
+                  example: "2024-10-25"
+                projects:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                emp_id:
+                  type: integer
+                  example: 2

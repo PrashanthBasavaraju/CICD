@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- Appender for all controller and service files -->
+	<appender name="ALL_LOGS_FILE"
+		class="ch.qos.logback.core.FileAppender">
+		<file>c:/Tools/logs/allLogs.log</file>
+		<encoder>
+			<pattern>[%d{yyyy-MM-dd HH:mm:ss}] - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	    <!-- Console Appender -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss}] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+	<!-- Custom logger for all controllers and services -->
+	<logger name="com.triconinfotech.WealthWise.controller"
+		level="INFO" additivity="false">
+		<appender-ref ref="ALL_LOGS_FILE" />
+	</logger>
+	<logger name="com.triconinfotech.WealthWise.service"
+		level="INFO" additivity="false">
+		<appender-ref ref="ALL_LOGS_FILE" />
+	</logger>
+	<logger name="com.triconinfotech.WealthWise.exception"
+		level="ERROR" additivity="false">
+		<appender-ref ref="ALL_LOGS_FILE" />
+	</logger>
+
+    <!-- Root logger for other messages -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>
